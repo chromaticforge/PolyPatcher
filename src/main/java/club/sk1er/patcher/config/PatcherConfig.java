@@ -2000,8 +2000,8 @@ public class PatcherConfig extends Config {
             Arrays.asList(
                 "scrollToZoom", "normalZoomSensitivity", "customZoomSensitivity", "smoothZoomAnimation",
                 "smoothZoomAnimationWhenScrolling", "smoothZoomAlgorithm", "toggleToZoom", "normalFpsCounter",
-                "useVanillaMetricsRenderer", "renderHandWhenZoomed", "smartFullbright", "smartEntityCulling",
-                "dynamicZoomSensitivity", "customSkyFix"
+                "useVanillaMetricsRenderer", "renderHandWhenZoomed", "smartFullbright", "smartEntityCulling", "entityCullingInfo",
+                "dynamicZoomSensitivity", "customSkyFix", "customSkyFixInfo"
             ).forEach(property -> hideIf(property, noOptiFine));
 
             Supplier<Boolean> smoothFontDetected = () -> ClassTransformer.smoothFontDetected;
