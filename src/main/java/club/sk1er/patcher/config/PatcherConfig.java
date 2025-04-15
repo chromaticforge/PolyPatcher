@@ -1994,8 +1994,6 @@ public class PatcherConfig extends Config {
                 "deleteScreenshot", "uploadScreenshot", "copyScreenshot", "openScreenshotsFolder"
             ).forEach(property -> addDependency(property, "screenshotManager"));
 
-            hideIf("instantFullscreen", () -> !SystemUtils.IS_OS_WINDOWS);
-
             Supplier<Boolean> noOptiFine = () -> ClassTransformer.optifineVersion.equals("NONE");
             Arrays.asList(
                 "scrollToZoom", "normalZoomSensitivity", "customZoomSensitivity", "smoothZoomAnimation",
@@ -2019,7 +2017,9 @@ public class PatcherConfig extends Config {
                 "parallaxFix", "extendChatBackground", "vanillaGlassPanes", "heldItemLighting"
             ).forEach(property -> hideIf(property, minecraft112));
 
+            hideIf("instantFullscreen", () -> !SystemUtils.IS_OS_WINDOWS);
             hideIf("keyboardLayout", () -> !SystemUtils.IS_OS_LINUX);
+            hideIf("betterKeybindHandlingInfo", () -> !SystemUtils.IS_OS_MACOS);
         } catch (Exception e) {
             Patcher.instance.getLogger().error("Failed to access property.", e);
         }
